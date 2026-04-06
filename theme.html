@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Theme</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+
+  <body class="min-h-screen grid grid-rows-[auto_1fr_auto]
+    bg-white dark:bg-gray-900 text-gray-900 dark:text-white
+    transition-colors duration-300">
+
+    <!-- ===== NAVBAR ===== -->
+    <header class="sticky top-0 z-30 bg-white dark:bg-gray-900
+      border-b border-gray-200 dark:border-gray-700 shadow-sm">
+      <nav class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+
+          <!-- Logo -->
+          <div class="font-heading font-bold text-xl text-brand-700
+            dark:text-brand-300">
+            Brand
+          </div>
+
+          <!-- Desktop menu -->
+          <div class="hidden md:flex items-center gap-6">
+            <a href="#" class="text-gray-600 dark:text-gray-300
+              hover:text-brand-600 dark:hover:text-brand-300 transition-colors">
+              Home
+            </a>
+            <a href="#contact" class="text-gray-600 dark:text-gray-300
+              hover:text-brand-600 dark:hover:text-brand-300 transition-colors">
+              About
+            </a>
+            <a href="#contact" class="text-gray-600 dark:text-gray-300
+              hover:text-brand-600 dark:hover:text-brand-300 transition-colors">
+              Contact
+            </a>
+
+            <!-- Dark mode toggle — desktop -->
+            <button id="theme-toggle-desktop"
+              class="p-2 rounded-lg text-gray-600 dark:text-gray-300
+                hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              <!-- Sun icon (light mode) -->
+              <svg id="sun-icon-desktop" xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              <!-- Moon icon (dark mode) -->
+              <svg id="moon-icon-desktop" xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile: burger + toggle -->
+          <div class="md:hidden flex items-center gap-2">
+            <button id="theme-toggle-mobile"
+              class="p-2 rounded-lg text-gray-600 dark:text-gray-300
+                hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg"
+                class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+              </svg>
+            </button>
+
+            <button id="mobile-menu-btn"
+              class="p-2 rounded-lg text-gray-600 dark:text-gray-300
+                hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors">
+              ☰
+            </button>
+          </div>
+
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu"
+          class="hidden md:hidden pb-4 space-y-2">
+          <a href="#" class="block px-3 py-2 rounded-lg text-gray-600
+            dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800">
+            Home
+          </a>
+          <a href="#contact" class="block px-3 py-2 rounded-lg text-gray-600
+            dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800">
+            About
+          </a>
+          <a href="#contact" class="block px-3 py-2 rounded-lg text-gray-600
+            dark:text-gray-300 hover:bg-brand-50 dark:hover:bg-gray-800">
+            Contact
+          </a>
+        </div>
+
+      </nav>
+    </header>
+
+    <!-- ===== MAIN ===== -->
+    <main class="max-w-6xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-12">
+
+      <!-- Hero -->
+      <section class="text-center py-16 mb-16">
+        <h1 class="font-heading text-huge font-bold text-brand-700
+          dark:text-brand-300 mb-4">
+          Custom Theme
+        </h1>
+        <p class="text-xl text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+          A page demonstrating Tailwind customisation with colours, fonts,
+          dark mode and responsive design.
+        </p>
+        <div class="flex gap-4 justify-center">
+          <button class="btn-primary">Get Started</button>
+          <button class="btn-secondary">Learn More</button>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section id="contact" class="mb-16">
+        <h2 class="font-heading text-3xl font-bold text-brand-700
+          dark:text-brand-300 mb-8 text-center">
+          Contact Us
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <!-- Form -->
+          <div class="card">
+            <form class="space-y-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700
+                  dark:text-gray-300 mb-1">Name</label>
+                <input type="text" placeholder="Your name"
+                  class="form-input" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700
+                  dark:text-gray-300 mb-1">Email</label>
+                <input type="email" placeholder="your@email.com"
+                  class="form-input" />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700
+                  dark:text-gray-300 mb-1">Message</label>
+                <textarea rows="4" placeholder="Your message..."
+                  class="form-input"></textarea>
+              </div>
+              <button type="submit" class="btn-primary w-full">
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <!-- Contact info -->
+          <div class="card space-y-6">
+            <div>
+              <h3 class="font-heading text-xl font-bold text-brand-700
+                dark:text-brand-300 mb-2">Our Office</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                123 Brand Street<br />
+                Oslo, Norway
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading text-xl font-bold text-brand-700
+                dark:text-brand-300 mb-2">Email</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                hello@brand.com
+              </p>
+            </div>
+            <div>
+              <h3 class="font-heading text-xl font-bold text-brand-700
+                dark:text-brand-300 mb-2">Phone</h3>
+              <p class="text-gray-600 dark:text-gray-400">
+                +47 123 45 678
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="bg-gray-900 dark:bg-gray-950 text-gray-400 mt-auto">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+
+          <div>
+            <h3 class="font-heading text-white font-bold text-lg mb-3">Brand</h3>
+            <p class="text-sm">
+              Building beautiful digital experiences with custom themes.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-3">Links</h3>
+            <ul class="space-y-2 text-sm">
+              <li><a href="#" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="#" class="hover:text-white transition-colors">About</a></li>
+              <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-white font-semibold mb-3">Follow Us</h3>
+            <div class="flex gap-4 text-xl">
+              <a href="#" class="hover:text-white transition-colors">🐦</a>
+              <a href="#" class="hover:text-white transition-colors">📘</a>
+              <a href="#" class="hover:text-white transition-colors">📸</a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="border-t border-gray-800 pt-6 text-center text-sm">
+          © 2025 Brand. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      // Dark mode toggle
+      function toggleTheme() {
+        document.documentElement.classList.toggle("dark");
+        const isDark = document.documentElement.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      }
+
+      document.getElementById("theme-toggle-desktop")
+        .addEventListener("click", toggleTheme);
+      document.getElementById("theme-toggle-mobile")
+        .addEventListener("click", toggleTheme);
+
+      // Mobile menu
+      document.getElementById("mobile-menu-btn")
+        .addEventListener("click", () => {
+          document.getElementById("mobile-menu")
+            .classList.toggle("hidden");
+        });
+
+      // Load saved theme
+      if (localStorage.theme === "dark" ||
+        (!localStorage.theme &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+
+  </body>
+</html>
